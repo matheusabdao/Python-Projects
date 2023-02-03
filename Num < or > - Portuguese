@@ -1,0 +1,7 @@
+primeiro_valor = input('Digite um valor: ')
+Segundo_valor = input('Digite outro valor: ')
+
+if primeiro_valor > Segundo_valor:
+    print(f'{primeiro_valor=} e maior ou igual ao {Segundo_valor=}')
+else:
+    print(f'{Segundo_valor=} e maior do que {primeiro_valor=}')
