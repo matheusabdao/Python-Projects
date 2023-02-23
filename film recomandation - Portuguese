@@ -1,0 +1,31 @@
+import pandas as pd
+import numpy as np
+from sklearn.metrics.pairwise import cosine_similarity
+
+# Carregando a base de dados de filmes e notas
+movies_df = pd.read_csv('movies.csv')
+ratings_df = pd.read_csv('ratings.csv')
+
+# Juntando as duas bases de dados
+df = pd.merge(movies_df, ratings_df, on='movieId')
+
+# Criando uma matriz pivot para faciliar a análise
+movie_matrix = df.pivot_table(index='userId', columns='title', values='rating')
+
+# Calculando a similaridade cosseno entre os filmes
+cosine_sim = cosine_similarity(movie_matrix.T)
+
+# Criando um dicionário para mapear títulos de filmes para índices
+indices = pd.Series(movies_df.index, index=movies_df['title'])
+
+# Função para recomendar filmes similares a um filme específico
+def recommend_movies(title, cosine_sim=cosine_sim):
+    idx = indices[title]
+    sim_scores = list(enumerate(cosine_sim[idx]))
+    sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
+    sim_scores = sim_scores[1:11]
+    movie_indices = [i[0] for i in sim_scores]
+    return movies_df['title'].iloc[movie_indices]
+
+# Testando a função com o filme "Toy Story"
+print(recommend_movies("Toy Story (1995)")
