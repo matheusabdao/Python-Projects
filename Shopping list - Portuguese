@@ -1,0 +1,17 @@
+def main():
+    shopping_list = []
+    print("Bem-vindo ao seu assistente de lista de compras de supermercado!")
+
+    while True:
+        print("O que você gostaria de adicionar à sua lista de compras?")
+        item = input("> ")
+        if item.lower() == "sair":
+            break
+        shopping_list.append(item)
+
+    print("\nSua lista de compras:")
+    for item in shopping_list:
+        print("- " + item)
+
+if __name__ == "__main__":
+    main()
