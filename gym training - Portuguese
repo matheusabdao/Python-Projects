@@ -1,0 +1,30 @@
+# Programa para gerar um treino de academia personalizado
+
+peso = float(input("Qual é o seu peso (em kg)? "))
+altura = float(input("Qual é a sua altura (em metros)? "))
+idade = int(input("Qual é a sua idade? "))
+
+# Cálculo do IMC
+imc = peso / (altura ** 2)
+
+# Verificação da categoria de IMC
+if imc < 18.5:
+    print("Abaixo do peso")
+elif 18.5 <= imc < 25:
+    print("Peso normal")
+elif 25 <= imc < 30:
+    print("Sobrepeso")
+else:
+    print("Obesidade")
+
+# Cálculo do peso ideal
+peso_ideal = 22.5 * (altura ** 2)
+
+print("Seu peso ideal é de", peso_ideal, "kg.")
+
+# Gerar um treino de academia personalizado
+print("Seu treino de academia para hoje:")
+print("1. Aquecimento (10 minutos de corrida leve ou bicicleta ergométrica)")
+print("2. Treino de força (3 séries de 12 repetições de agachamento, supino e leg press)")
+print("3. Treino de cardio (30 minutos de corrida ou esteira)")
+print("4. Alongamento (10 minutos de alongamento para os músculos trabalhados)")
