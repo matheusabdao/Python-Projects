@@ -1,8 +1,8 @@
 from  rembg import remove # pip install rembg
 from PIL import Image # pip install Pillow
 
-input_path = './ADB6D945-664C-415B-9C42-181EE7A5F784_1_105_c.jpeg'
-output_path = './ADB6D945-664C-415B-9C42-181EE7A5F784_1_105_c.png'
+input_path = './image_example.jpeg'
+output_path = './image_example.png'
 
 inp = Image.open(input_path)
 
